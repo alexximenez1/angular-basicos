@@ -1,0 +1,22 @@
+import { Component  } from '@angular/core';
+import { personaje } from '../interfaces/dbz.interfaces';
+   
+     @Component({
+     selector: 'app-main-page',
+     templateUrl: './main-page.component.html',
+    })
+     export class MainPageComponent {
+
+      
+            nuevo:personaje = {
+               nombre:'mushi',
+                  poder:200
+               }
+              
+           
+
+            constructor(){
+            
+         }
+            }
+               
