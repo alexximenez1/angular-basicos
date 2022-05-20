@@ -1,0 +1,32 @@
+import { Component, Input, Output} from '@angular/core';
+import { personaje } from '../interfaces/dbz.interfaces';
+import { Dbzservice } from '../services/dbz.service';
+
+@Component({
+  selector: 'app-agregar',
+  templateUrl: './agregar.component.html',
+ 
+})
+export class AgregarComponent  {
+
+  @Input()nuevo:personaje={
+    nombre:'',
+    poder : 0
+    }
+
+       cambiarNombre(event:any): void{
+       console.log(event.target.value);
+   }
+   //  @Output() onNuevoPersonaje:EventEmitter<personaje>  = new EventEmitter<personaje>();
+       constructor( private dbzService: Dbzservice) { }
+     agregar() {
+     if (this.nuevo.nombre.trim().length===0){return};
+  
+  //  this.onNuevoPersonaje.emit(this.nuevo);
+     this.dbzService.agregarPersonaje(this.nuevo);
+            this.nuevo={
+       nombre: '',
+       poder: 0
+      }        
+   }
+  }
